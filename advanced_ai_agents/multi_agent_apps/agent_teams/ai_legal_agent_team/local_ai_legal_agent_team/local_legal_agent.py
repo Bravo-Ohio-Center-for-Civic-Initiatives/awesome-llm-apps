@@ -20,7 +20,7 @@ def init_qdrant():
     return Qdrant(
         collection="legal_knowledge",
         url="http://localhost:6333", 
-        embedder=OllamaEmbedder(model="openhermes")
+        embedder=OllamaEmbedder()
     )
 
 def process_document(uploaded_file, vector_db: Qdrant):
@@ -84,7 +84,7 @@ def main():
                 legal_researcher = Agent(
                     name="Legal Researcher",
                     role="Legal research specialist",
-                    model=Ollama(id="llama3.1:8b"),  
+                    model=Ollama(id="llama3.2:3b"),  
                     knowledge=st.session_state.knowledge_base,
                     search_knowledge=True,
                     instructions=[
@@ -98,7 +98,7 @@ def main():
                 contract_analyst = Agent(
                     name="Contract Analyst",
                     role="Contract analysis specialist",
-                    model=Ollama(id="llama3.1:8b"),
+                    model=Ollama(id="llama3.2:3b"),
                     knowledge=knowledge_base,
                     search_knowledge=True,
                     instructions=[
@@ -112,7 +112,7 @@ def main():
                 legal_strategist = Agent(
                     name="Legal Strategist", 
                     role="Legal strategy specialist",
-                    model=Ollama(id="llama3.1:8b"),
+                    model=Ollama(id="llama3.2:3b"),
                     knowledge=knowledge_base,
                     search_knowledge=True,
                     instructions=[
@@ -127,7 +127,7 @@ def main():
                 st.session_state.legal_team = Agent(
                     name="Legal Team Lead",
                     role="Legal team coordinator",
-                    model=Ollama(id="llama3.1:8b"),
+                    model=Ollama(id="llama3.2:3b"),
                     team=[legal_researcher, contract_analyst, legal_strategist],
                     knowledge=st.session_state.knowledge_base,
                     search_knowledge=True,

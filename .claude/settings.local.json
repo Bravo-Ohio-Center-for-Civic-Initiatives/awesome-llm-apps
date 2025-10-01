@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ollama list:*)",
+      "Bash(pip install:*)",
+      "Bash(docker run:*)",
+      "Bash(curl:*)",
+      "Bash(ollama pull:*)",
+      "Bash(streamlit run:*)",
+      "Bash(pkill:*)",
+      "Bash(find:*)",
+      "Bash(lsof:*)",
+      "Bash(python:*)",
+      "Bash(ss:*)",
+      "Bash(jobs)",
+      "Bash(pgrep:*)",
+      "Bash(sudo ufw:*)",
+      "Bash(chmod:*)"
+    ],
+    "deny": []
+  }
+}
